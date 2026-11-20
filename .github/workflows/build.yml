@@ -34,12 +34,6 @@ jobs:
         if: success()
         run: cp app/build/outputs/apk/debug/app-debug.apk SubTimer.apk
 
-      - name: Collect failure log
-        if: failure()
-        run: |
-          tail -n 3000 build.log > fail.log || true
-          grep -n -i -E "e: |error:|Unresolved|Could not|FAILURE" build.log | tail -n 200 > errors.log || true
-
       - name: Publish APK release
         if: success()
         uses: softprops/action-gh-release@v2
@@ -50,13 +44,14 @@ jobs:
             自动构建（debug 签名，可直接安装）。用法见 README。
           files: SubTimer.apk
 
-      - name: Publish log release
+      - name: Commit failure log
         if: failure()
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: log-${{ github.run_number }}
-          name: build-log-${{ github.run_number }}
-          body: 构建失败，附编译日志
-          files: |
-            errors.log
-            fail.log
+        run: |
+          tail -n 4000 build.log > ci-build.log || true
+          grep -n -i -E "e: |error:|Unresolved|Could not|FAILURE|Exception" build.log | tail -n 300 > ci-errors.log || true
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git checkout -b ci-logs || git checkout ci-logs
+          git add -f ci-build.log ci-errors.log
+          git commit -m "ci: build log run ${{ github.run_number }}" || true
+          git push -f origin ci-logs
