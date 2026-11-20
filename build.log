@@ -1,0 +1,151 @@
++ set -x
++ '[' -n /usr/lib/jvm/temurin-17-jdk-amd64 ']'
++ export JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
++ JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
++ export PATH=/usr/lib/jvm/temurin-17-jdk-amd64/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ PATH=/usr/lib/jvm/temurin-17-jdk-amd64/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ java -version
+openjdk version "17.0.21" 2026-10-20
+OpenJDK Runtime Environment Temurin-17.0.21+9 (build 17.0.21+9)
+OpenJDK 64-Bit Server VM Temurin-17.0.21+9 (build 17.0.21+9, mixed mode, sharing)
++ SDK=/usr/local/lib/android/sdk
++ '[' '!' -d /usr/local/lib/android/sdk ']'
++ '[' '!' -d /usr/local/lib/android/sdk ']'
++ export ANDROID_HOME=/usr/local/lib/android/sdk
++ ANDROID_HOME=/usr/local/lib/android/sdk
++ export ANDROID_SDK_ROOT=/usr/local/lib/android/sdk
++ ANDROID_SDK_ROOT=/usr/local/lib/android/sdk
++ echo SDK=/usr/local/lib/android/sdk
+SDK=/usr/local/lib/android/sdk
++ ls /usr/local/lib/android/sdk
+build-tools
+cmake
+cmdline-tools
+extras
+licenses
+ndk
+packages-list.txt
+platform-tools
+platforms
++ ls /usr/local/lib/android/sdk/platforms
+android-34
+android-34-ext10
+android-34-ext11
+android-34-ext12
+android-34-ext8
+android-35
+android-35-ext14
+android-35-ext15
+android-36
+android-36-ext18
+android-36-ext19
+android-36.1
+android-37.0
+android-37.1
+android-37.2
+android-37.2-beta1
+android-37.2-beta2
+android-37.2-beta3
++ ls /usr/local/lib/android/sdk/build-tools
+34.0.0
+35.0.0
+35.0.1
+36.0.0
+36.1.0
+37.0.0
++ echo sdk.dir=/usr/local/lib/android/sdk
+++ command -v gradle
++ GRADLE_BIN=/usr/bin/gradle
++ '[' -z /usr/bin/gradle ']'
++ gradle -v
+
+Welcome to Gradle 9.9.1!
+
+Here are the highlights of this release:
+ - Performance improvements for Kotlin DSL compilation
+ - Test filtering for non-method JUnit Platform tests
+ - Wrapper settings preserved on upgrade
+ - Predefined groups in the Problems API
+
+For more details see https://docs.gradle.org/9.9.1/release-notes.html
+
+
+------------------------------------------------------------
+Gradle 9.9.1
+------------------------------------------------------------
+
+Build time:    2026-11-10 16:22:15 UTC
+Revision:      47a96e4ed1822d6aa7fa32bed4461208e69077a6
+
+Kotlin:        2.4.21
+Groovy:        4.0.33
+Ant:           Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Launcher JVM:  17.0.21 (Eclipse Adoptium 17.0.21+9)
+Daemon JVM:    /usr/lib/jvm/temurin-17-jdk-amd64 (no Daemon JVM specified, using current Java home)
+OS:            Linux 7.0.0-1016-aws amd64
+
++ gradle :app:assembleDebug --no-daemon --stacktrace
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.9.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+w: file:///home/runner/work/subtimer-android/subtimer-android/app/build.gradle.kts:29:5: 'fun BaseAppModuleExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit' is deprecated. The kotlinOptions types are deprecated, please migrate to the compilerOptions types. More details are here: https://kotl.in/u1r8ln.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:generateDebugResValues
+> Task :app:checkDebugAarMetadata
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJniLibFolders
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeLibDexDebug
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:processDebugResources
+> Task :app:mergeExtDexDebug
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:compileDebugKotlin
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics
+> Task :app:processDebugJavaRes
+> Task :app:mergeProjectDexDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+[Incubating] Problems report is available at: file:///home/runner/work/subtimer-android/subtimer-android/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.9.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 1s
+33 actionable tasks: 33 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.9.1/userguide/configuration_cache_enabling.html
++ ls -l app/build/outputs/apk/debug/
+total 820
+-rw-r--r-- 1 runner runner 833105 Nov 20 04:01 app-debug.apk
+-rw-r--r-- 1 runner runner    396 Nov 20 04:01 output-metadata.json
++ echo BUILD_OK
+BUILD_OK
